@@ -1,12 +1,23 @@
-#!/usr/bin/env python
+import setuptools
 
-from distutils.core import setup
-from catkin_pkg.python_setup import generate_distutils_setup
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
-package_info = generate_distutils_setup(
-    packages=['catmux'],
-    scripts=['script/create_session'],
-    package_dir={'': 'src'}
+setuptools.setup(
+    name="catmux",
+    version="0.1.0",
+    author="Felix Exner",
+    author_email="felix_mauch@web.de",
+    description="Catmux is package to enable the user to start a tmux session with multiple windows and splits with ease.",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/fmauch/catmux",
+    packages=setuptools.find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.6',
+    scripts=['script/create_session']
 )
-
-setup(**package_info)
